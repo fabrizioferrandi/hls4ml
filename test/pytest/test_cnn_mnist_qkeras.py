@@ -70,6 +70,8 @@ def hls_model(mnist_model, request, test_case_id):
         ('Vitis', 'io_parallel', 'latency'),
         ('Vitis', 'io_stream', 'latency'),
         ('Vitis', 'io_stream', 'resource'),
+        ('Bambu', 'io_parallel', 'latency'),
+        ('Bambu', 'io_parallel', 'resource'),
     ],
     indirect=True,
     ids=[
@@ -83,6 +85,8 @@ def hls_model(mnist_model, request, test_case_id):
         'Vitis_io_parallel_latency',
         'Vitis_io_stream_latency',
         'Vitis_io_stream_resource',
+        'Bambu_io_parallel_latency',
+        'Bambu_io_parallel_resource',
     ],
 )
 def test_accuracy(mnist_data, mnist_model, hls_model):
