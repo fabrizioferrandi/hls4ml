@@ -31,8 +31,8 @@ class TransformTypes(GlobalOptimizerPass):
                 new_var = self.array_var_converter.convert(var, pragma='stream')
             elif io_type == 'io_parallel':
                 if out_name in node.model.inputs:
-                    # NOTE this needs to be changed to partition
-                    new_var = self.array_var_converter.convert(var, pragma='reshape')
+                    # NOTE this has to be partition since bambu currently does not support reshape
+                    new_var = self.array_var_converter.convert(var, pragma='partition')
                 elif isinstance(var, InplaceTensorVariable):
                     new_var = self.inplace_array_var_converter.convert(var, pragma='')
                 else:
